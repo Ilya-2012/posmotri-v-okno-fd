@@ -64,7 +64,7 @@ ol {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  /*height: 54px; --возможно понадобится*/
+  min-height: 54px;
 }
 
 .content__list {
@@ -110,8 +110,7 @@ ol {
   font-size: 18px;
   line-height: 16.2px;
   text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
-  box-orient: vertical;
+  -webkit-box-orient: vertical; /*Починить*/
   -webkit-line-clamp: 4;
   line-clamp: 4;
 }
@@ -130,6 +129,7 @@ ol {
 .search-form__fieldset-title {
   font-weight: 400;
   font-size: 18px;
+  margin-bottom: 5px;
 }
 
 .title {
@@ -183,6 +183,18 @@ ol {
   border: none;
 }
 
+.button {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: white;
+  font-weight: 700;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
 .search-form__label {
   display: flex;
   flex-direction: row;
@@ -201,6 +213,11 @@ ol {
   font-size: 18px;
   background-color: transparent;
   appearance: none;
+}
+
+.search-form__textfield {
+  cursor: text;
+  width: 225px;
 }
 
 .search-form__textfield::placeholder {
@@ -233,6 +250,39 @@ ol {
   background-color: #fff;
 }
 
-.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+.search-form__checkbox:checked ~ .search-form__pseudo-checkbox::after {
   opacity: 1;
+}
+
+.search-form__label:hover:has(input[type='checkbox']),
+.button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.search-form__label:active > .search-form__pseudo-checkbox::after {
+  opacity: 1;
+}
+
+.button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+.button:active {
+  background-color: rgb(255 255 255 / 0.3);
+}
+
+.search-form__checkbox-list {
+  padding: 0;
+}
+
+.search-form__submit-button {
+  width: 194px;
+  height: 34px;
+  align-self: end;
+}
+
+.more-button {
+  width: 100%;
 }
